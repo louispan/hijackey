@@ -96,3 +96,12 @@ M-[ : ESC [ , ie. CSI
 C-m : RET
 C-i : TAB
 ```
+
+# Emacs
+
+See https://github.com/louispan/hijackey-emacs
+
+# Vim
+
+See https://github.com/louispan/hijackey-vim
+

@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Get SOURCE_DIR resolving symbolic links
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/246128#246128
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  # LP: modified to append path correctly when SOURCE_DIR is "/"
+  [[ $SOURCE != /* ]] && SOURCE="${SOURCE_DIR%\/}/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+[[ $1 == "-v" ]] && VERBOSE=-v
+
+link() {
+    if [ "$1" -ef "$2" ]; then
+        [ -z "$VERBOSE" ] || echo "Already linked \"$2\" to \"$1\""
+    else
+        ( echo "linking \"$2\" to \"$1\"" && ln -s "$1" "$2" )
+    fi
+}
+
+insert_line_to_beginning() {
+    [ -f "$2" ] || touch "$2"
+    lines=$(grep -nF "$1" "$2" | sed 's/:.*//' | tr '\n' ' ')
+    if [ -n "$lines" ]; then
+        [ -z "$VERBOSE" ] || echo "Already inserted \"$1\" to beginning of \"$2\": line $lines"
+    else
+        # add newline before appending
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            gsed -i --follow-symlinks "1i $1" "$2"
+        else
+            sed -i --follow-symlinks "1i $1" "$2"
+        fi
+        echo "Inserted \"$1\" to beginning of \"$2\""
+    fi
+}
+
+if [[ "$OSTYPE" != "linux-gnu" ]] && [ -z "$DISPLAY" ]; then
+    echo "Not linux-gnu and DISPLAY not set, not installing linux hijackey settings."
+else
+    mkdir -p "$HOME/.kde/share/apps/konsole" # debian 8 & ubuntu 14.04
+    link "$SOURCE_DIR/linux/share/.local/share/konsole/hijackey.keytab" "$HOME/.kde/share/apps/konsole/hijackey.keytab"
+
+    mkdir -p "$HOME/.local/share/konsole" # ubuntu 15.04
+    link "$SOURCE_DIR/linux/share/.local/share/konsole/hijackey.keytab" "$HOME/.local/share/konsole/hijackey.keytab"
+fi
+
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    echo "Not OSX, not installing osx hijackey settings."
+else
+    mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles/"
+    link "$SOURCE_DIR/osx/Library/Application Support/iTerm2/DynamicProfiles/hijackey.plist" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/hijackey.plist"
+fi
+
+insert_line_to_beginning "\$include $SOURCE_DIR/bash/.inputrc" "$HOME/.inputrc"

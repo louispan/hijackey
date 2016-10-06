@@ -1,0 +1,372 @@
+# [README.default.Keytab] Default Keyboard Table
+#
+# To customize your keyboard, copy this file to something
+# ending with .keytab and change it to meet you needs.
+# Please read the README.KeyTab and the README.keyboard
+# in this case.
+#
+# --------------------------------------------------------------
+
+keyboard "Hijackey, based on Default (XFree 4)"
+
+# --------------------------------------------------------------
+#
+# Note that this particular table is a "risc" version made to
+# ease customization without bothering with obsolete details.
+# See VT100.keytab for the more hairy stuff.
+#
+# --------------------------------------------------------------
+
+# common keys
+
+key Escape             : "\E"
+
+key Tab   -Shift       : "\t"
+key Tab   +Shift+Ansi  : "\E[Z"
+key Tab   +Shift-Ansi  : "\t"
+key Backtab     +Ansi  : "\E[Z"
+key Backtab     -Ansi  : "\t"
+
+key Return-Shift-NewLine : "\r"
+key Return-Shift+NewLine : "\r\n"
+
+key Return+Shift         : "\EOM"
+
+# Backspace and Delete codes are preserving CTRL-H.
+
+key Backspace      : "\x7f"
+
+# Arrow keys in VT52 mode
+# shift up/down are reserved for scrolling.
+# shift left/right are reserved for switching between tabs (this is hardcoded).
+
+key Up   -Shift-Ansi : "\EA"
+key Down -Shift-Ansi : "\EB"
+key Right-Shift-Ansi : "\EC"
+key Left -Shift-Ansi : "\ED"
+
+# Arrow keys in ANSI mode with Application - and Normal Cursor Mode)
+
+key Up    -Shift-AnyMod+Ansi+AppCuKeys : "\EOA"
+key Down  -Shift-AnyMod+Ansi+AppCuKeys : "\EOB"
+key Right -Shift-AnyMod+Ansi+AppCuKeys : "\EOC"
+key Left  -Shift-AnyMod+Ansi+AppCuKeys : "\EOD"
+
+key Up    -Shift-AnyMod+Ansi-AppCuKeys : "\E[A"
+key Down  -Shift-AnyMod+Ansi-AppCuKeys : "\E[B"
+key Right -Shift-AnyMod+Ansi-AppCuKeys : "\E[C"
+key Left  -Shift-AnyMod+Ansi-AppCuKeys : "\E[D"
+
+key Up    -Shift+AnyMod+Ansi           : "\E[1;*A"
+key Down  -Shift+AnyMod+Ansi           : "\E[1;*B"
+key Right -Shift+AnyMod+Ansi           : "\E[1;*C"
+key Left  -Shift+AnyMod+Ansi           : "\E[1;*D"
+
+key Up    +Shift+AppScreen             : "\E[1;*A"
+key Down  +Shift+AppScreen             : "\E[1;*B"
+key Left  +Shift+AppScreen             : "\E[1;*D"
+key Right +Shift+AppScreen             : "\E[1;*C"
+
+# Keypad keys with NumLock ON
+# (see "Numeric Keypad" section at http://www.nw.com/nw/WWW/products/wizcon/vt100.html )
+#
+# Not enabled for now because it breaks the keypad in Vim.
+#
+#key 0 +KeyPad+AppKeyPad : "\EOp"
+#key 1 +KeyPad+AppKeyPad : "\EOq"
+#key 2 +KeyPad+AppKeyPad : "\EOr"
+#key 3 +KeyPad+AppKeyPad : "\EOs"
+#key 4 +KeyPad+AppKeyPad : "\EOt"
+#key 5 +KeyPad+AppKeyPad : "\EOu"
+#key 6 +KeyPad+AppKeyPad : "\EOv"
+#key 7 +KeyPad+AppKeyPad : "\EOw"
+#key 8 +KeyPad+AppKeyPad : "\EOx"
+#key 9 +KeyPad+AppKeyPad : "\EOy"
+#key + +KeyPad+AppKeyPad : "\EOl"
+#key - +KeyPad+AppKeyPad : "\EOm"
+#key . +KeyPad+AppKeyPad : "\EOn"
+#key * +KeyPad+AppKeyPad : "\EOM"
+#key Enter +KeyPad+AppKeyPad : "\r"
+
+# Keypad keys with NumLock Off
+key Up    -Shift+Ansi+AppCuKeys+KeyPad : "\EOA"
+key Down  -Shift+Ansi+AppCuKeys+KeyPad : "\EOB"
+key Right -Shift+Ansi+AppCuKeys+KeyPad : "\EOC"
+key Left  -Shift+Ansi+AppCuKeys+KeyPad : "\EOD"
+
+key Up    -Shift+Ansi-AppCuKeys+KeyPad : "\E[A"
+key Down  -Shift+Ansi-AppCuKeys+KeyPad : "\E[B"
+key Right -Shift+Ansi-AppCuKeys+KeyPad : "\E[C"
+key Left  -Shift+Ansi-AppCuKeys+KeyPad : "\E[D"
+
+key Home        +AppCuKeys+KeyPad : "\EOH"
+key End         +AppCuKeys+KeyPad : "\EOF"
+key Home        -AppCuKeys+KeyPad : "\E[H"
+key End         -AppCuKeys+KeyPad : "\E[F"
+
+key Insert      +KeyPad  : "\E[2~"
+key Delete      +KeyPad  : "\E[3~"
+key PgUp -Shift+KeyPad  : "\E[5~"
+key PgDown  -Shift+KeyPad  : "\E[6~"
+
+# other grey PC keys
+
+key Enter+NewLine : "\r\n"
+key Enter-NewLine : "\r"
+
+key Home        -AnyMod-AppCuKeys : "\E[H"
+key End         -AnyMod-AppCuKeys : "\E[F"
+key Home        -AnyMod+AppCuKeys : "\EOH"
+key End         -AnyMod+AppCuKeys : "\EOF"
+key Home        +AnyMod           : "\E[1;*H"
+key End         +AnyMod           : "\E[1;*F"
+
+key Insert      -AnyMod  : "\E[2~"
+key Delete      -AnyMod  : "\E[3~"
+key Insert      +AnyMod  : "\E[2;*~"
+key Delete      +AnyMod  : "\E[3;*~"
+
+key PgUp -Shift-AnyMod  : "\E[5~"
+key PgDown  -Shift-AnyMod  : "\E[6~"
+key PgUp -Shift+AnyMod  : "\E[5;*~"
+key PgDown  -Shift+AnyMod  : "\E[6;*~"
+
+# Function keys
+key F1  -AnyMod  : "\EOP"
+key F2  -AnyMod  : "\EOQ"
+key F3  -AnyMod  : "\EOR"
+key F4  -AnyMod  : "\EOS"
+key F5  -AnyMod  : "\E[15~"
+key F6  -AnyMod  : "\E[17~"
+key F7  -AnyMod  : "\E[18~"
+key F8  -AnyMod  : "\E[19~"
+key F9  -AnyMod  : "\E[20~"
+key F10 -AnyMod  : "\E[21~"
+key F11 -AnyMod  : "\E[23~"
+key F12 -AnyMod  : "\E[24~"
+
+key F1  +AnyMod  : "\EO*P"
+key F2  +AnyMod  : "\EO*Q"
+key F3  +AnyMod  : "\EO*R"
+key F4  +AnyMod  : "\EO*S"
+key F5  +AnyMod  : "\E[15;*~"
+key F6  +AnyMod  : "\E[17;*~"
+key F7  +AnyMod  : "\E[18;*~"
+key F8  +AnyMod  : "\E[19;*~"
+key F9  +AnyMod  : "\E[20;*~"
+key F10 +AnyMod  : "\E[21;*~"
+key F11 +AnyMod  : "\E[23;*~"
+key F12 +AnyMod  : "\E[24;*~"
+
+# Work around dead keys
+
+key Space +Control : "\x00"
+
+# Some keys are used by konsole to cause operations.
+# The scroll* operations refer to the history buffer.
+
+#key Up    +Shift-AppScreen  : scrollLineUp
+#key PgUp +Shift-AppScreen  : scrollPageUp
+#key Home  +Shift-AppScreen  : scrollUpToTop
+#key Down  +Shift-AppScreen  : scrollLineDown
+#key PgDown  +Shift-AppScreen  : scrollPageDown
+#key End   +Shift-AppScreen  : scrollDownToBottom
+
+# *** Customizations started here ***
+# This file is basically the original
+# /usr/share/konsole/default.keytab with the following appended customizations
+# And the konsole scroll history buffer commented out
+# (should be just above here)
+
+# https://github.com/robertknight/konsole/blob/master/data/keyboard-layouts/README.KeyTab
+# Keynames are those defined in <qnamespace.h> with the
+# "Qt::Key_" prefix removed.
+# For information about the format
+
+# Hijackey emulates missing key combinations with a custom escape sequence:
+# CSI 72 ; decimal_ascii_code ; modifier ~
+
+# Missing function mappings
+
+key Up    +AnyMod                     : "\E[1;*A"
+key Down  +AnyMod                     : "\E[1;*B"
+key Right +AnyMod                     : "\E[1;*C"
+key Left  +AnyMod                     : "\E[1;*D"
+
+# NB Prior is PgUp, Next is PgDown
+# Remember to also remove Ctrl+PgUp/Down maping from Konsole menu
+# Settings -> Shortcuts, "Next Tab" & "Previous Tab"
+
+key PgUp -AnyMod  : "\E[5~"
+key PgDown  -AnyMod  : "\E[6~"
+key PgUp +AnyMod  : "\E[5;*~"
+key PgDown  +AnyMod  : "\E[6;*~"
+
+# don't provide custom tab combinations beyond shift
+# due to conflicts with OS task switching
+key Tab -Control -Alt -Shift : "\t"
+key Tab -Control -Alt +Shift : "\E[Z"
+
+# Hijackey Customizations
+
+# There are no terminal codes to modifiers for many keys.
+# Hijack spare F44+ keycodes to emulate them.
+# See http://invisible-island.net/xterm/terminfo.html
+# Sync these keycodes with vim and bash .inputrc
+
+key Esc -Control -Alt +Shift : "\E[72;27;2~"
+key Esc -Control +Alt -Shift : "\E[72;27;3~"
+key Esc -Control +Alt +Shift : "\E[72;27;4~"
+key Esc +Control -Alt -Shift : "\E[72;27;5~"
+key Esc +Control -Alt +Shift : "\E[72;27;6~"
+key Esc +Control +Alt -Shift : "\E[72;27;7~"
+key Esc +Control +Alt +Shift : "\E[72;27;8~"
+
+# Shift return is "\EOM" preexisting in default XFree4 above
+# key Return -Control -Alt +Shift : "\EOM"
+# Alt Return is "\E\x0a" preexisting in linux
+# key Return -Control +Alt -Shift : "\E\x0a"
+key Return -Control +Alt +Shift : "\E[72;13;4~"
+key Return +Control -Alt -Shift : "\E[72;13;5~"
+key Return +Control -Alt +Shift : "\E[72;13;6~"
+key Return +Control +Alt -Shift : "\E[72;13;7~"
+key Return +Control +Alt +Shift : "\E[72;13;8~"
+
+# \x08 is ^H preexisting in linux
+# ^? DEL is also used as backspace
+# NB. Forward delete is actually "\E[3~"
+# key Backspace -Control -Alt -Shift : "\x08"
+key Backspace -Control -Alt +Shift : "\E[72;8;2~"
+# \e\x7f is also \e^?
+key Backspace -Control +Alt -Shift : "\E\x7F"
+key Backspace -Control +Alt +Shift : "\E[72;8;4~"
+key Backspace +Control -Alt -Shift : "\E[72;8;5~"
+key Backspace +Control -Alt +Shift : "\E[72;8;6~"
+key Backspace +Control +Alt -Shift : "\E[72;8;7~"
+key Backspace +Control +Alt +Shift : "\E[72;8;8~"
+
+key Space -Control -Alt +Shift : "\E[72;32;2~"
+key Space -Control +Alt -Shift : "\E[72;32;3~"
+key Space -Control +Alt +Shift : "\E[72;32;4~"
+# \x00 preexisting in Konsole XFree4
+# key Space +Control -Alt -Shift : "\x00"
+key Space +Control -Alt +Shift : "\E[72;32;6~"
+key Space +Control +Alt -Shift : "\E[72;32;7~"
+key Space +Control +Alt +Shift : "\E[72;32;8~"
+
+# All printables already have M- and S-M versions (just prepended by ESC)
+# NB. S-M= is just M- of the shifted printable
+# Nothing has C-S-
+# NB. C-S- is just C- of the shifted printable, except for alphas
+# which is C-S-lowercase_alpha
+
+# C-S-alpha
+key A +Control -Alt +Shift : "\E[72;97;6~"
+key B +Control -Alt +Shift : "\E[72;98;6~"
+key C +Control -Alt +Shift : "\E[72;99;6~"  # OS terminal copy
+key D +Control -Alt +Shift : "\E[72;100;6~"
+key E +Control -Alt +Shift : "\E[72;101;6~"
+key F +Control -Alt +Shift : "\E[72;102;6~"
+key G +Control -Alt +Shift : "\E[72;103;6~"
+key H +Control -Alt +Shift : "\E[72;104;6~"
+key I +Control -Alt +Shift : "\E[72;105;6~"
+key J +Control -Alt +Shift : "\E[72;106;6~"
+key K +Control -Alt +Shift : "\E[72;107;6~"
+key L +Control -Alt +Shift : "\E[72;108;6~"
+key M +Control -Alt +Shift : "\E[72;109;6~"
+key N +Control -Alt +Shift : "\E[72;110;6~"
+key O +Control -Alt +Shift : "\E[72;111;6~"
+key P +Control -Alt +Shift : "\E[72;112;6~"
+key Q +Control -Alt +Shift : "\E[72;113;6~"
+key R +Control -Alt +Shift : "\E[72;114;6~"
+key S +Control -Alt +Shift : "\E[72;115;6~"
+key T +Control -Alt +Shift : "\E[72;116;6~" # OS new tab
+key U +Control -Alt +Shift : "\E[72;117;6~"
+key V +Control -Alt +Shift : "\E[72;118;6~" # OS terminal paste
+key W +Control -Alt +Shift : "\E[72;119;6~" # OS close tab
+key X +Control -Alt +Shift : "\E[72;120;6~"
+key Y +Control -Alt +Shift : "\E[72;121;6~"
+key Z +Control -Alt +Shift : "\E[72;122;6~"
+
+# C-M-alpha
+key A +Control +Alt -Shift : "\E[72;97;7~"
+key B +Control +Alt -Shift : "\E[72;98;7~"
+key C +Control +Alt -Shift : "\E[72;99;7~"
+key D +Control +Alt -Shift : "\E[72;100;7~"
+key E +Control +Alt -Shift : "\E[72;101;7~"
+key F +Control +Alt -Shift : "\E[72;102;7~"
+key G +Control +Alt -Shift : "\E[72;103;7~"
+key H +Control +Alt -Shift : "\E[72;104;7~"
+key I +Control +Alt -Shift : "\E[72;105;7~"
+key J +Control +Alt -Shift : "\E[72;106;7~"
+key K +Control +Alt -Shift : "\E[72;107;7~"
+key L +Control +Alt -Shift : "\E[72;108;7~"
+key M +Control +Alt -Shift : "\E[72;109;7~"
+key N +Control +Alt -Shift : "\E[72;110;7~"
+key O +Control +Alt -Shift : "\E[72;111;7~"
+key P +Control +Alt -Shift : "\E[72;112;7~"
+key Q +Control +Alt -Shift : "\E[72;113;7~"
+key R +Control +Alt -Shift : "\E[72;114;7~"
+key S +Control +Alt -Shift : "\E[72;115;7~"
+key T +Control +Alt -Shift : "\E[72;116;7~"
+key U +Control +Alt -Shift : "\E[72;117;7~"
+key V +Control +Alt -Shift : "\E[72;118;7~"
+key W +Control +Alt -Shift : "\E[72;119;7~"
+key X +Control +Alt -Shift : "\E[72;120;7~"
+key Y +Control +Alt -Shift : "\E[72;121;7~"
+key Z +Control +Alt -Shift : "\E[72;122;7~"
+
+# C-S-M-alpha
+key A +Control +Alt +Shift : "\E[72;97;8~"
+key B +Control +Alt +Shift : "\E[72;98;8~"
+key C +Control +Alt +Shift : "\E[72;99;8~"
+key D +Control +Alt +Shift : "\E[72;100;8~"
+key E +Control +Alt +Shift : "\E[72;101;8~"
+key F +Control +Alt +Shift : "\E[72;102;8~"
+key G +Control +Alt +Shift : "\E[72;103;8~"
+key H +Control +Alt +Shift : "\E[72;104;8~"
+key I +Control +Alt +Shift : "\E[72;105;8~"
+key J +Control +Alt +Shift : "\E[72;106;8~"
+key K +Control +Alt +Shift : "\E[72;107;8~"
+key L +Control +Alt +Shift : "\E[72;108;8~"
+key M +Control +Alt +Shift : "\E[72;109;8~"
+key N +Control +Alt +Shift : "\E[72;110;8~"
+key O +Control +Alt +Shift : "\E[72;111;8~"
+key P +Control +Alt +Shift : "\E[72;112;8~"
+key Q +Control +Alt +Shift : "\E[72;113;8~"
+key R +Control +Alt +Shift : "\E[72;114;8~"
+key S +Control +Alt +Shift : "\E[72;115;8~"
+key T +Control +Alt +Shift : "\E[72;116;8~"
+key U +Control +Alt +Shift : "\E[72;117;8~"
+key V +Control +Alt +Shift : "\E[72;118;8~"
+key W +Control +Alt +Shift : "\E[72;119;8~"
+key X +Control +Alt +Shift : "\E[72;120;8~"
+key Y +Control +Alt +Shift : "\E[72;121;8~"
+key Z +Control +Alt +Shift : "\E[72;122;8~"
+
+# C-numbers
+key 0            +Control -Alt -Shift : "\E[72;48;5~"
+key 1            +Control -Alt -Shift : "\E[72;49;5~"
+key 2            +Control -Alt -Shift : "\E[72;50;5~"
+key 3            +Control -Alt -Shift : "\E[72;51;5~"
+key 4            +Control -Alt -Shift : "\E[72;52;5~"
+key 5            +Control -Alt -Shift : "\E[72;53;5~"
+key 6            +Control -Alt -Shift : "\E[72;54;5~"
+key 7            +Control -Alt -Shift : "\E[72;55;5~"
+key 8            +Control -Alt -Shift : "\E[72;56;5~"
+key 9            +Control -Alt -Shift : "\E[72;57;5~"
+
+# C-M-numbers
+key 0            +Control +Alt -Shift : "\E[72;48;7~"
+key 1            +Control +Alt -Shift : "\E[72;49;7~"
+key 2            +Control +Alt -Shift : "\E[72;50;7~"
+key 3            +Control +Alt -Shift : "\E[72;51;7~"
+key 4            +Control +Alt -Shift : "\E[72;52;7~"
+key 5            +Control +Alt -Shift : "\E[72;53;7~"
+key 6            +Control +Alt -Shift : "\E[72;54;7~"
+key 7            +Control +Alt -Shift : "\E[72;55;7~"
+key 8            +Control +Alt -Shift : "\E[72;56;7~"
+key 9            +Control +Alt -Shift : "\E[72;57;7~"
+
+# C-S-numbers - not possible in linux
+# C-S-M-numbers - not possible in linux

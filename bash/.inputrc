@@ -1,0 +1,150 @@
+# Modifier keys are not available for Esc, Enter, Tab, Space, or Bs
+# Hijackey key codes to emulate modifier keys in terminal, which
+# requires a corresponding Hijacky config for iTerm2 or konsole.
+# The following lists the escape codes for the key combinations.
+# include them at the top of your .inputrc like this
+# so that hijackey keys do not print anything by default
+
+# Put the following at the top of your ~/.inputrc
+# $include ~/.hijackey/bash/.inputrc
+
+"\e[72;27;2~": # key Esc -Control -Alt +Shift
+"\e[72;27;3~": # key Esc -Control +Alt -Shift
+"\e[72;27;4~": # key Esc -Control +Alt +Shift
+"\e[72;27;5~": # key Esc +Control -Alt -Shift
+"\e[72;27;6~": # key Esc +Control -Alt +Shift
+"\e[72;27;7~": # key Esc +Control +Alt -Shift
+"\e[72;27;8~": # key Esc +Control +Alt +Shift
+
+# preexisting "\eOM": # key Return -Control -Alt +Shift
+# preexisting "\e\x0a": # key Return -Control +Alt -Shift
+"\e[72;13;4~": # key Return -Control +Alt +Shift
+"\e[72;13;5~": # key Return +Control -Alt -Shift
+"\e[72;13;6~": # key Return +Control -Alt +Shift
+"\e[72;13;7~": # key Return +Control +Alt -Shift
+"\e[72;13;8~": # key Return +Control +Alt +Shift
+
+# preexisting "\x08": # key Backspace -Control -Alt -Shift
+"\e[72;8;2~":  # key Backspace -Control -Alt +Shift
+# prexisting "\e\C-?": # key Backspace -Control +Alt -Shift
+"\e[72;8;4~":  # key Backspace -Control +Alt +Shift
+"\e[72;8;5~":  # key Backspace +Control -Alt -Shift
+"\e[72;8;6~":  # key Backspace +Control -Alt +Shift
+"\e[72;8;7~":  # key Backspace +Control +Alt -Shift
+"\e[72;8;8~":  # key Backspace +Control +Alt +Shift
+
+"\e[72;32;2~": # key Space -Control -Alt +Shift
+"\e[72;32;3~": # key Space -Control +Alt -Shift
+"\e[72;32;4~": # key Space -Control +Alt +Shift
+# preexisting "\x00": # key Space +Control -Alt -Shift
+"\e[72;32;6~": # key Space +Control -Alt +Shift
+"\e[72;32;7~": # key Space +Control +Alt -Shift
+"\e[72;32;8~": # key Space +Control +Alt +Shift
+
+# C-S-alpha
+"\e[72;97;6~": # key A +Control -Alt +Shift
+"\e[72;98;6~": # key B +Control -Alt +Shift
+# OS terminal copy "\e[72;99;6~": # key C +Control -Alt +Shift
+"\e[72;100;6~": # key D +Control -Alt +Shift
+"\e[72;101;6~": # key E +Control -Alt +Shift
+"\e[72;102;6~": # key F +Control -Alt +Shift
+"\e[72;103;6~": # key G +Control -Alt +Shift
+"\e[72;104;6~": # key H +Control -Alt +Shift
+"\e[72;105;6~": # key I +Control -Alt +Shift
+"\e[72;106;6~": # key J +Control -Alt +Shift
+"\e[72;107;6~": # key K +Control -Alt +Shift
+"\e[72;108;6~": # key L +Control -Alt +Shift
+"\e[72;109;6~": # key M +Control -Alt +Shift
+"\e[72;110;6~": # key N +Control -Alt +Shift
+"\e[72;111;6~": # key O +Control -Alt +Shift
+"\e[72;112;6~": # key P +Control -Alt +Shift
+"\e[72;113;6~": # key Q +Control -Alt +Shift
+"\e[72;114;6~": # key R +Control -Alt +Shift
+"\e[72;115;6~": # key S +Control -Alt +Shift
+# OS new tab # "\e[72;116;6~": key T +Control -Alt +Shift
+"\e[72;117;6~": # key U +Control -Alt +Shift
+# OS terminal paste "\e[72;118;6~": # key V +Control -Alt +Shift
+"\e[72;119;6~": # key W +Control -Alt +Shift
+"\e[72;120;6~": # key X +Control -Alt +Shift
+"\e[72;121;6~": # key Y +Control -Alt +Shift
+"\e[72;122;6~": # key Z +Control -Alt +Shift
+
+# C-M-alpha
+"\e[72;97;7~":  # key A +Control +Alt -Shift
+"\e[72;98;7~":  # key B +Control +Alt -Shift
+"\e[72;99;7~":  # key C +Control +Alt -Shift
+"\e[72;100;7~": # key D +Control +Alt -Shift
+"\e[72;101;7~": # key E +Control +Alt -Shift
+"\e[72;102;7~": # key F +Control +Alt -Shift
+"\e[72;103;7~": # key G +Control +Alt -Shift
+"\e[72;104;7~": # key H +Control +Alt -Shift
+"\e[72;105;7~": # key I +Control +Alt -Shift
+"\e[72;106;7~": # key J +Control +Alt -Shift
+"\e[72;107;7~": # key K +Control +Alt -Shift
+"\e[72;108;7~": # key L +Control +Alt -Shift
+"\e[72;109;7~": # key M +Control +Alt -Shift
+"\e[72;110;7~": # key N +Control +Alt -Shift
+"\e[72;111;7~": # key O +Control +Alt -Shift
+"\e[72;112;7~": # key P +Control +Alt -Shift
+"\e[72;113;7~": # key Q +Control +Alt -Shift
+"\e[72;114;7~": # key R +Control +Alt -Shift
+"\e[72;115;7~": # key S +Control +Alt -Shift
+"\e[72;116;7~": # key T +Control +Alt -Shift
+"\e[72;117;7~": # key U +Control +Alt -Shift
+"\e[72;118;7~": # key V +Control +Alt -Shift
+"\e[72;119;7~": # key W +Control +Alt -Shift
+"\e[72;120;7~": # key X +Control +Alt -Shift
+"\e[72;121;7~": # key Y +Control +Alt -Shift
+"\e[72;122;7~": # key Z +Control +Alt -Shift
+
+# C-S-M-alpha
+"\e[72;97;8~" : # key A +Control +Alt +Shift
+"\e[72;98;8~" : # key B +Control +Alt +Shift
+"\e[72;99;8~" : # key C +Control +Alt +Shift
+"\e[72;100;8~": # key D +Control +Alt +Shift
+"\e[72;101;8~": # key E +Control +Alt +Shift
+"\e[72;102;8~": # key F +Control +Alt +Shift
+"\e[72;103;8~": # key G +Control +Alt +Shift
+"\e[72;104;8~": # key H +Control +Alt +Shift
+"\e[72;105;8~": # key I +Control +Alt +Shift
+"\e[72;106;8~": # key J +Control +Alt +Shift
+"\e[72;107;8~": # key K +Control +Alt +Shift
+"\e[72;108;8~": # key L +Control +Alt +Shift
+"\e[72;109;8~": # key M +Control +Alt +Shift
+"\e[72;110;8~": # key N +Control +Alt +Shift
+"\e[72;111;8~": # key O +Control +Alt +Shift
+"\e[72;112;8~": # key P +Control +Alt +Shift
+"\e[72;113;8~": # key Q +Control +Alt +Shift
+"\e[72;114;8~": # key R +Control +Alt +Shift
+"\e[72;115;8~": # key S +Control +Alt +Shift
+"\e[72;116;8~": # key T +Control +Alt +Shift
+"\e[72;117;8~": # key U +Control +Alt +Shift
+"\e[72;118;8~": # key V +Control +Alt +Shift
+"\e[72;119;8~": # key W +Control +Alt +Shift
+"\e[72;120;8~": # key X +Control +Alt +Shift
+"\e[72;121;8~": # key Y +Control +Alt +Shift
+"\e[72;122;8~": # key Z +Control +Alt +Shift
+
+# C-printable
+"\e[72;49;5~":  # key 1            +Control -Alt -Shift
+"\e[72;50;5~":  # key 2            +Control -Alt -Shift
+"\e[72;51;5~":  # key 3            +Control -Alt -Shift
+"\e[72;52;5~":  # key 4            +Control -Alt -Shift
+"\e[72;53;5~":  # key 5            +Control -Alt -Shift
+"\e[72;54;5~":  # key 6            +Control -Alt -Shift
+"\e[72;55;5~":  # key 7            +Control -Alt -Shift
+"\e[72;56;5~":  # key 8            +Control -Alt -Shift
+"\e[72;57;5~":  # key 9            +Control -Alt -Shift
+"\e[72;48;5~":  # key 0            +Control -Alt -Shift
+
+# C-M-numbers
+"\e[72;49;7~":  # key 1            +Control +Alt -Shift
+"\e[72;50;7~":  # key 2            +Control +Alt -Shift
+"\e[72;51;7~":  # key 3            +Control +Alt -Shift
+"\e[72;52;7~":  # key 4            +Control +Alt -Shift
+"\e[72;53;7~":  # key 5            +Control +Alt -Shift
+"\e[72;54;7~":  # key 6            +Control +Alt -Shift
+"\e[72;55;7~":  # key 7            +Control +Alt -Shift
+"\e[72;56;7~":  # key 8            +Control +Alt -Shift
+"\e[72;57;7~":  # key 9            +Control +Alt -Shift
+"\e[72;48;7~":  # key 0            +Control +Alt -Shift

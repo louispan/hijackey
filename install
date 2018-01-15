@@ -17,7 +17,7 @@ link() {
     if [ "$1" -ef "$2" ]; then
         [ -z "$VERBOSE" ] || echo "Already linked \"$2\" to \"$1\""
     else
-        ( echo "linking \"$2\" to \"$1\"" && ln -s "$1" "$2" )
+        ( echo "linking \"$2\" to \"$1\"" && mkdir -p $(dirname "$2") && ln -s "$1" "$2" )
     fi
 }
 
